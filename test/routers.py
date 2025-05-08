@@ -11,7 +11,7 @@ def get_db():
         yield db
     finally:
         db.close()
-
+# 
 @router.post("/create/", response_model=schemas.UserResponse)
 def user_create(user: schemas.UserCreate, db: Session = Depends(get_db)):
     return services.create_user(db=db, user=user)

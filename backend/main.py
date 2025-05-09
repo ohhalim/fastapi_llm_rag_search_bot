@@ -59,16 +59,8 @@ rag_service = RAGService(embedding_service)
 # 샘플 Google Ads API 문서 데이터
 sample_docs = [
     {
-        "content": "To create a campaign in Google Ads API, use the CampaignService. Set the campaign name, budget, and bidding strategy. The campaign status can be ENABLED or PAUSED.",
-        "metadata": "Creating Campaigns"
-    },
-    {
-        "content": "The AdGroupService manages ad groups within campaigns. Each ad group contains keywords and ads. Set the ad group type to SEARCH_STANDARD or DISPLAY_STANDARD based on your needs.",
-        "metadata": "Managing Ad Groups"
-    },
-    {
-        "content": "To authenticate with Google Ads API, you need OAuth2 credentials. Create a service account in Google Cloud Console and download the JSON key file. Use the GoogleAdsClient to initialize the connection.",
-        "metadata": "Authentication"
+        "content": "test",
+        "metadata": "test"
     }
 ]
 

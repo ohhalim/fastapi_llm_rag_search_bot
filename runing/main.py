@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from config import settings
-import models
 from database import engine
 from routers import router
+import models
 
 # 데이터베이스 테이블 생성
 models.Base.metadata.create_all(bind=engine)

@@ -9,10 +9,10 @@ class UserBase(BaseModel):
 class UserCreate(UserBase):
     pass
 
-class UserUpdate(baseModel):
-    email: Optional(str) = None
-    name: Optional(str) = None
-    is_active: Optional(bool) = None
+class UserUpdate(BaseModel):
+    email: Optional[str] = None
+    name: Optional[str] = None
+    is_active: Optional[bool] = None
 
 class User(UserBase):
     id: int 

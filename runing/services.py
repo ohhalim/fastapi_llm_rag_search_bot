@@ -1,9 +1,9 @@
 from typing import List, Optional
 from fastapi import HTTPException
 import schemas
-from repoitories import UserRepository
+from repositories import UserRepository
 
-class UserServuce:
+class UserService:
     def __init__(self, user_repository: UserRepository):
         self.user_repository = user_repository
 
@@ -21,7 +21,7 @@ class UserServuce:
         if not db_user:
             raise HTTPException(status_code=404, detail="User not found")
 
-    def get_user(self, skip: int = 0, limit: int = 100) -> List[schemas.User]:
+    def get_users(self, skip: int = 0, limit: int = 100) -> List[schemas.User]:
         users = self.user_repository.get_users(skip=skip,limit=limit)
         return [schemas.User.model_validate(user) for user in users]
 

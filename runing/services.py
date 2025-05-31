@@ -20,6 +20,7 @@ class UserService:
         db_user = self.user_repository.get_user(user_id)
         if not db_user:
             raise HTTPException(status_code=404, detail="User not found")
+        return schemas.User.model_validate(db_user)
 
     def get_users(self, skip: int = 0, limit: int = 100) -> List[schemas.User]:
         users = self.user_repository.get_users(skip=skip,limit=limit)

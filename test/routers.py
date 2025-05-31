@@ -10,9 +10,10 @@ from fastapi import APIRouter, Depends, HTTPException, status
 # sqlalchemy.orm에서 Session 클래스를 가져옴 -> 이 세션은 데이터베이스와의 상호작용을 관리
 from sqlalchemy.orm import Session
 # services, schemas 파일 가져옴 : services는 비즈니스 로직을 처리 , schemas 데이터 유효성검사를 의한 Pydantic모델 정의
-from . import schemas, services
+import schemas
+import services
 # database.py에서 SessionLocal을 가져옴 데이터베이스 세션을 생성하는 팩토리 함수
-from .database import SessionLocal
+from database import SessionLocal
 
 # 새로운 라우터 인스턴스르 생성 : API앤드포인트에서 사용된다
 router = APIRouter()

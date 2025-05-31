@@ -3,11 +3,11 @@ from sqlalchemy.orm import Session
 # 비밀번호 해싱을 위한 클래스:cryptcontext -> 비밀번호를 안전하게 저장하는데 사용된다
 from passlib.context import CryptContext
 # 현재 디렉토리의 모델 파일에서 User클래스를 가져온다 
-from .models import User
+from models import User
 # 현제 디렉토리 schemas.py에서 UserCreate 클래스를 가져온다 : 이클래스는 데이터베이스의 user 테이블을 나타냅니다
-from .schemas import UserCreate
+from schemas import UserCreate
 # repositories.py에서 UserRepository클래스를 가져온다 데이텁에ㅣ스 작업을 처리
-from .repositories import UserRepository
+from repositories import UserRepository
 
 # CrypotContext 인스턴스를 생성 bcrypt 를 통하여 비밀번호를 해싱  deprtcated = auto 는 이전 번전의 알고리즘을 자동을 ㅗ처리
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")

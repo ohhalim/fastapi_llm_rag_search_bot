@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from .models import User
+from models import User
 
 # 데이터베이스 작업을 처리하는 레포지토리
 class UserRepository:

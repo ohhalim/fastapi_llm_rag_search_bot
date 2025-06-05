@@ -1,6 +1,7 @@
 from pydantic import BaseModel 
 from typing import Optional
 
+
 class UserBase(BaseModel):
     email: str 
     name: str
@@ -19,4 +20,22 @@ class User(UserBase):
 
     class Config:
         from_attributes = True
+
+class Item(BaseModel):
+    name: str
+    description: str
+    price: int
+    is_active: bool = True
+
+    class Config:
+        from_attributes = True
+
+class ItemCreate(Item):
+    pass
+
+class ItemUpdate(BaseModel):
+    name: Optional[str] = None
+    description: Optional[str] = None
+    price: Optional[int] = None
+    is_active: Optional[bool] = None
 

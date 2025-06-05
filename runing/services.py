@@ -1,7 +1,7 @@
 from typing import List, Optional
 from fastapi import HTTPException
 import schemas
-from repositories import UserRepository
+from repositories import UserRepository, ItemRepository
 
 class UserService:
     def __init__(self, user_repository: UserRepository):
@@ -39,4 +39,31 @@ class UserService:
         return True
 
 
+class ItemService:  
+    def __init__(self, item_repository: ItemRepository):
+        self.item_repository = item_repository
 
+    def create_item(self, item: schemas.ItemCreate) -> schemas.Item:
+        created_item = self.item_repository.create_item(item)
+        return schemas.Item.model_validate(created_item)
+    
+    def get_item(self, item_id: int) -> schemas.Item:
+        db_item = self.item_repository.get_item(item_id)
+        if not db_item:
+            raise HTTPException(status_code=404, detail="Item not found")
+        return schemas.Item.model_validate(db_item)
+    
+    def get_items(self, skip: int = 0, limit: int = 100) -> List[schemas.Item]:
+        items = self.item_repository.get_items(skip=skip, limit=limit)
+        return [schemas.Item.model_validate(item) for item in items]
+    
+    def update_item(self, item_id: int, item_update: schemas.ItemUpdate) -> schemas.Item:
+        updated_item = self.item_repository.update_item(item_id, item_update)
+        if not updated_item:
+            raise HTTPException(status_code=404, detail="Item not found")
+        return schemas.Item.model_validate(updated_item)
+    
+    def delete_item(self, item_id: int) -> bool:
+        deleted = self.item_repository.delete_item(item_id)
+        if not deleted:
+            raise HTTPException(status_code=404, detail="Item not found")

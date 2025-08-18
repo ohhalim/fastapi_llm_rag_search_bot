@@ -14,6 +14,10 @@ import schemas
 import services
 # database.py에서 SessionLocal을 가져옴 데이터베이스 세션을 생성하는 팩토리 함수
 from database import SessionLocal
+'''
+엔드포인트 정의 , 각 엔드포인트에 대한 http메서드와 비즈니스 로직을 연결 
+이유: 모든 하위모듈이 완성된후에 이들을 조합하여 요청을 처리하는 api엔드포인트를 정의하고 앱실행ㄴ
+'''
 
 # 새로운 라우터 인스턴스르 생성 : API앤드포인트에서 사용된다
 router = APIRouter()

@@ -5,6 +5,13 @@
 from pydantic import BaseModel, EmailStr, constr, validator
 # pydantic 모델 정의 
 # 이 모델은 회원가입할떄 필요한 데이터를 검증 
+
+'''
+pydantic을 사용하여 api요청 , 응답데이터의 유효성 검사 및 직렬화를 위한 스키마 정의
+models.py 데이터베이스 모델과 매핑
+이유: models.py 에서 정의된 데이터 데이스 모델을 기반으로 클라이언트와 통신할때 사용될 데이터 형식을 정의
+api의 입력, 출력형식을 정의
+'''
 class UserCreate(BaseModel):
     email: EmailStr
     username: constr(min_length=3)

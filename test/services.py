@@ -9,6 +9,12 @@ from schemas import UserCreate
 # repositories.py에서 UserRepository클래스를 가져온다 데이텁에ㅣ스 작업을 처리
 from repositories import UserRepository
 
+'''
+비즈니스 로직 구현
+여러 레포지토리의 메서드를 조합하여 작업을 수행 데이터 유효성검사 예외처리등 담당
+이유: repositories.py를 통해 데이터에 접근하고 schemas.py 를 통해 정의된 데이ㅓ를 사용하여 비즈니스규칙을 적용 -> routers.py에서 이 서비스 메서드 호출
+'''
+
 # CrypotContext 인스턴스를 생성 bcrypt 를 통하여 비밀번호를 해싱  deprtcated = auto 는 이전 번전의 알고리즘을 자동을 ㅗ처리
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 

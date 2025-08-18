@@ -8,3 +8,11 @@ class User(Base):
     name = Column(String)
     is_active = Column(Boolean, default =True)
 
+class Item(Base):
+    __tablename__ = "items"
+
+    id = Column(Integer, primary_key =True, index =True)
+    name = Column(String)
+    description = Column(String)
+    price = Column(Integer)
+    is_active = Column(Boolean, default =True)
